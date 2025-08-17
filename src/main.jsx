@@ -28,10 +28,12 @@ import MyPost from './Pages/MyPost.jsx';
 import PrivateRoute from './Route/PrivateRoute.jsx';
 import AdminRoute from './Route/AdminRoute.jsx';
 import PostComments from './Pages/PostComments.jsx';
+import Error from './Pages/Error.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<Error></Error>,
     children: [
       { index: true, Component: Home },
       {
