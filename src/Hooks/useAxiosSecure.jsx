@@ -4,43 +4,46 @@ import useAuth from './useAuth';
 import { useNavigate } from 'react-router';
 
 const axiosSecure = axios.create({
-
-
-
-    baseURL: `https://server-rho-lime-60.vercel.app`
+  baseURL: `https://farhan-coral.vercel.app`
 });
 
 const useAxiosSecure = () => {
-    const { user, logOut } = useAuth();
-    const navigate = useNavigate();
+  const { user, logOut } = useAuth();
+  const navigate = useNavigate();
 
-    axiosSecure.interceptors.request.use(config => {
-        config.headers.Authorization = `Bearer ${user?.accessToken}`
-        return config;
-    }, error => {
-        return Promise.reject(error);
-    })
+  // Request interceptor: attach token
+  axiosSecure.interceptors.request.use(
+    (config) => {
+      if (user?.accessToken) {
+        config.headers.Authorization = `Bearer ${user.accessToken}`;
+      }
+      return config;
+    },
+    (error) => Promise.reject(error)
+  );
 
-    axiosSecure.interceptors.response.use(res => {
-        return res;
-    }, error => {
-        const status = error.status;
-        if (status === 403) {
-            navigate('/forbidden');
+  // Response interceptor: handle errors
+  axiosSecure.interceptors.response.use(
+    (res) => res,
+    async (error) => {
+      const status = error.response?.status; // ✅ FIXED
+
+      if (status === 403) {
+        navigate('/forbidden');
+      } else if (status === 401) {
+        try {
+          await logOut();
+          navigate('/login');
+        } catch (err) {
+          console.error("Logout failed:", err);
         }
-        else if (status === 401) {
-            logOut()
-                .then(() => {
-                    navigate('/login')
-                })
-                .catch(() => { })
-        }
+      }
 
-        return Promise.reject(error);
-    })
+      return Promise.reject(error);
+    }
+  );
 
-
-    return axiosSecure;
+  return axiosSecure;
 };
 
 export default useAxiosSecure;

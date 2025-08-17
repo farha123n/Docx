@@ -7,7 +7,7 @@ const Admin = () => {
     const [users, setUsers] = useState([])
     const [filterUser, setFilterUser] = useState([])
     useEffect(() => {
-          axios.get('https://server-rho-lime-60.vercel.app/users').
+          axios.get('https://farhan-coral.vercel.appusers').
             then(res => setUsers(res.data))
             .catch(err => console.log(err))
 
@@ -24,7 +24,7 @@ const Admin = () => {
     console.log('filter', filterUser)
     const handleCreateAdmin = (email) => {
         
-axios.patch(`https://server-rho-lime-60.vercel.app/user/admin/${email}`)
+axios.patch(`https://farhan-coral.vercel.appuser/admin/${email}`)
             .then(res =>{ console.log(res.data.message)
                    toast.success(res.data.message || 'Made admin successfully');
         // Remove that user from list

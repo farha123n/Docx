@@ -52,15 +52,16 @@ const router = createBrowserRouter([
       {
         path:'/postComment',Component:PostComments
       },
+       {
+            path: "post/:id",
+            element: <PostDetails />
+          },
       {
         path: '/dashBoard', element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
         children: [
           {index:true,Component:MyProfile},
           { path: 'addPost', Component: AddPost },
-          {
-            path: "post/:id",
-            element: <PostDetails />
-          },
+         
           {
             path:'comment/:id',
             element:<Comment></Comment>

@@ -13,7 +13,7 @@ const BecomeMember = () => {
     const stripe = await stripePromise;
 
     // Request to your backend to create a checkout se
-    const { data } = await axios.post('https://server-rho-lime-60.vercel.app/create-checkout-session');
+    const { data } = await axios.post('https://farhan-coral.vercel.appcreate-checkout-session');
 
 
 

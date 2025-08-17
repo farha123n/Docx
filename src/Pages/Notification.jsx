@@ -5,7 +5,7 @@ const Notification = () => {
     const [announces,setAnnounces]=useState([])
     useEffect(()=>{
 
-      axios.get('https://server-rho-lime-60.vercel.app/announcement').
+      axios.get('https://farhan-coral.vercel.appannouncement').
 
       then(res=>{setAnnounces(res.data)}).
       catch(err=>console.log(err))

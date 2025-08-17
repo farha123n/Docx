@@ -19,7 +19,7 @@ const {data:post, isPending, error,  } = useQuery({
     queryFn: () =>
 
 
-      fetch(`https://server-rho-lime-60.vercel.app/post/${id}`).then((res) =>
+     fetch(`https://farhan-coral.vercel.app/post/${id}`).then((res) =>
 
         res.json()
       ).then(data=>{

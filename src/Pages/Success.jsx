@@ -16,7 +16,7 @@ export default function Success() {
     if (sessionId) {
 
 
-      axios.get(`https://server-rho-lime-60.vercel.app/checkout-session/${sessionId}`)
+      axios.get(`https://farhan-coral.vercel.appcheckout-session/${sessionId}`)
 
         .then(res => setSession(res.data))
         .catch(err => console.error(err));
@@ -24,7 +24,7 @@ export default function Success() {
   }, [sessionId]);
 useEffect(() => {
   if (sessionId && user?.email) {
-    axios.patch(`https://server-rho-lime-60.vercel.app/user/${user?.email}`, {
+    axios.patch(`https://farhan-coral.vercel.appuser/${user?.email}`, {
 
       goldenBadge: true
     })
