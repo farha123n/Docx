@@ -1,12 +1,77 @@
-# React + Vite
+Key Features of Your Blog Project
+1️⃣ Frontend (React + Tailwind CSS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Users can:
 
-Currently, two official plugins are available:
+Create posts (with title & content)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+View posts
 
-## Expanding the ESLint configuration
+Edit / delete own posts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Comment on posts
+
+Like posts
+
+Membership functionality:
+
+Users can post more than 3 blogs after paying via Stripe
+
+2️⃣ Backend (Node.js + Express)
+
+REST APIs for:
+
+CRUD operations for posts
+
+Comments
+
+Likes
+
+User authentication
+
+Membership validation
+
+Role-based access:
+
+Admin can manage users and posts
+
+Normal users have limited access
+
+3️⃣ Payments
+
+Stripe integration for membership
+
+Shows you understand real-world SaaS features
+
+📝 How to Document / Present This Project
+1️⃣ Project Title
+
+Full-Stack Blog Platform with Membership & Role-Based Dashboard
+
+2️⃣ Short Description
+
+A full-stack web application where users can create, read, update, and delete blog posts, comment, like, and access premium features via Stripe membership. Includes role-based dashboards for normal users and admins.
+
+3️⃣ Technologies
+
+Frontend: React, Tailwind CSS, Axios
+
+Backend: Node.js, Express, MongoDB (or your DB)
+
+Payments: Stripe
+
+Authentication: JWT / session (if used)
+
+4️⃣ Features
+
+User Authentication & Authorization
+
+Role-based dashboard (User / Admin)
+
+CRUD operations for blogs
+
+Comments & Likes
+
+Membership-based premium features
+
+Payment integration with Stripe
